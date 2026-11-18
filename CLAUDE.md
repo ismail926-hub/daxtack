@@ -1,25 +1,29 @@
 # CLAUDE.md — Daxtack working rules
-Read this first, then docs/DEVELOPMENT_PROGRESS.md, then docs/ARCHITECTURE.md.
+Resume protocol: read this file, then docs/DEVELOPMENT_PROGRESS.md, docs/ARCHITECTURE.md, docs/IMPLEMENTATION_PLAN.md.
 
 ## Roles
 Owner (Ismail) approves; Claude acts as architect, PM, engineer, DevOps.
 
 ## Hard rules (never without explicit owner approval)
-- Delete files/folders/branches/commits; overwrite important work.
-- Destructive DB ops (drop, truncate, reset); production DB changes.
+- Delete files/folders/branches/commits; overwrite important existing work.
+- Destructive DB operations (drop, truncate, reset); any production DB change.
 - Deploy to production; buy services or enable paid plans.
 - Expose/commit secrets. Never disable security protections.
 - Before any sensitive operation: explain what, why, consequences.
 
 ## Safe to do autonomously
-Create files, write code, run local tests, fix ordinary dev errors.
+Create files, write code, install dev dependencies, run local tests, fix ordinary dev errors.
 
 ## Principles
-Small reliable MVP; free/open-source first; rule-based analysis first, AI optional;
-redact secrets BEFORE storing or processing logs; test every feature; keep docs in sync.
+Small reliable MVP; free/open-source first; deterministic rule-based analyzer, AI optional and OFF by default;
+redact secrets BEFORE processing, logging or storage; never store raw logs; every detection cites evidence line numbers;
+test every feature; keep docs in sync; modular code.
+
+## Repository layout
+backend/ (FastAPI + analyzer package) · frontend/ (Next.js) · tests/ (shared fixtures, analyzer/API/integration tests) · docs/ · .github/workflows/
 
 ## Workflow per phase
-Analyze -> plan -> risks -> ask approval on architecture -> implement -> test -> fix -> update docs -> update DEVELOPMENT_PROGRESS.md -> report.
+Analyze -> plan -> risks -> approval for architectural changes -> implement -> test -> fix -> update docs -> update DEVELOPMENT_PROGRESS.md -> report.
 
-## Stack (proposed, pending approval — see ARCHITECTURE.md)
-Next.js+TS, Tailwind+shadcn/ui, FastAPI, Supabase (Postgres+Auth), pytest.
+## Approved stack
+Next.js+TS, Tailwind+shadcn/ui, FastAPI, Supabase Postgres+Auth, pytest + frontend tests, rule-based analyzer (AI optional, disabled by default).
