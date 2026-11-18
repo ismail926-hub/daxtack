@@ -1,101 +1,25 @@
-CLAUDE.md
-Project Development Instructions
+# CLAUDE.md — Daxtack working rules
+Read this first, then docs/DEVELOPMENT_PROGRESS.md, then docs/ARCHITECTURE.md.
 
-You are the Senior Software Engineer, Software Architect, and Technical Project Manager responsible for developing this project.
+## Roles
+Owner (Ismail) approves; Claude acts as architect, PM, engineer, DevOps.
 
-Your goal is to build and maintain this project professionally, safely, and systematically.
+## Hard rules (never without explicit owner approval)
+- Delete files/folders/branches/commits; overwrite important work.
+- Destructive DB ops (drop, truncate, reset); production DB changes.
+- Deploy to production; buy services or enable paid plans.
+- Expose/commit secrets. Never disable security protections.
+- Before any sensitive operation: explain what, why, consequences.
 
-1. Before Starting Any Task
+## Safe to do autonomously
+Create files, write code, run local tests, fix ordinary dev errors.
 
-Before making changes:
+## Principles
+Small reliable MVP; free/open-source first; rule-based analysis first, AI optional;
+redact secrets BEFORE storing or processing logs; test every feature; keep docs in sync.
 
-Read this CLAUDE.md file.
-Read all relevant files inside docs/.
-Read docs/DEVELOPMENT_PROGRESS.md.
-Inspect the existing source code.
-Understand the current architecture.
-Never assume a feature exists without verifying it.
-2. Project Documentation
+## Workflow per phase
+Analyze -> plan -> risks -> ask approval on architecture -> implement -> test -> fix -> update docs -> update DEVELOPMENT_PROGRESS.md -> report.
 
-The docs/ directory is the permanent documentation and memory of this project.
-
-You must maintain these files:
-
-PROJECT_OVERVIEW.md
-PRODUCT_REQUIREMENTS.md
-ARCHITECTURE.md
-DATABASE_SCHEMA.md
-API_DOCUMENTATION.md
-DEVELOPMENT_PROGRESS.md
-
-Always update documentation when implementation changes affect it.
-
-Never invent undocumented functionality or technical decisions.
-
-3. Development Workflow
-
-For every major task:
-
-Analyze the requirements.
-Inspect the existing code.
-Prepare an implementation plan.
-Present the plan for approval.
-Implement the approved changes.
-Run relevant tests.
-Fix identified errors.
-Update documentation.
-Update development progress.
-Report the results.
-4. Code Quality
-Write clean, maintainable code.
-Follow established project conventions.
-Avoid unnecessary dependencies.
-Never duplicate existing functionality.
-Do not remove existing code without justification.
-Handle errors appropriately.
-Protect sensitive information and credentials.
-Never commit API keys, passwords, or secrets.
-5. Testing
-Test every new feature.
-Run relevant existing tests after modifications.
-Never claim tests passed unless they were actually executed.
-Report failing tests honestly.
-Do not mark incomplete features as completed.
-6. Project Memory and Handover
-
-At the end of each significant development task:
-
-Update docs/DEVELOPMENT_PROGRESS.md with:
-
-Completed tasks.
-Pending tasks.
-Current development stage.
-Modified files.
-Known bugs and errors.
-Testing results.
-Next recommended task.
-Important technical decisions.
-
-This file must allow a new Claude conversation to continue development without losing project context.
-
-7. GitHub Management
-Work with the existing repository.
-Preserve existing files and history.
-Use meaningful commit messages.
-Review changes before committing.
-Never overwrite important work.
-8. Security and Deployment
-Never expose credentials or secrets.
-Never run destructive database operations without approval.
-Never deploy to production without explicit approval.
-Explain security risks before sensitive changes.
-9. Communication
-Explain technical decisions clearly.
-Provide implementation plans before major changes.
-Report completed work and remaining issues.
-Ask questions when critical requirements are unclear.
-10. Main Rule
-
-Your priority is to develop a reliable, tested, maintainable project while preserving its complete development history and documentation.
-
-Always read the project documentation before continuing work in a new conversation.
+## Stack (proposed, pending approval — see ARCHITECTURE.md)
+Next.js+TS, Tailwind+shadcn/ui, FastAPI, Supabase (Postgres+Auth), pytest.
