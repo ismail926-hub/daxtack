@@ -1,4 +1,5 @@
-# Database Schema (Supabase Postgres) — implemented in Phase 2
+# Database Schema (Supabase Postgres)
+Status: PROVISIONAL design for Phase 2 — not approved, not implemented. Storage mode, size caps and retention (`expires_at`, 500 KB cap) are deferred decisions.
 All tables: RLS enabled; policies restrict to `user_id = auth.uid()`. Migrations are additive and committed in `backend/migrations/`. No destructive migration or production change without owner approval.
 ## profiles
 id uuid PK (= auth.users.id) · display_name text · plan text default 'free' · created_at timestamptz

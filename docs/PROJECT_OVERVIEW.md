@@ -5,4 +5,4 @@
 **Market reality:** AI-first competitors exist (SenseTheLog, FailBrief, CodeRabbit, Agnox, indie tools). Daxtack competes on privacy, explainability and rule quality, not on "uses AI".
 **Target users:** students, solo developers, small teams, junior DevOps.
 **Business model (later):** free monthly quota; paid for GitHub integration, team history, optional AI explanations.
-**Validation:** before heavy investment, show the working analyzer (CLI/demo) to ~10 developers (see IMPLEMENTATION_PLAN.md, Phase 1 exit).
+**Validation:** after Phase 1, demo the working analyzer/CLI to a small group of developers before heavy investment. Audience size is deferred (owner to decide).
