@@ -1,4 +1,5 @@
 # API — base `/api/v1`, auth `Authorization: Bearer <Supabase JWT>` (Phase 2)
+Status: PROVISIONAL — nothing here exists yet. Phase 1 has only the analyzer, the CLI and a local `GET /health`; Phase 2 details are deferred.
 Phase 1 exposes only `GET /health` (and the analyzer via CLI).
 - POST /analyses {log, title?} -> 201 AnalysisResult (redacted, analyzed, saved, usage incremented)
 - GET /analyses?limit&cursor · GET /analyses/{id} · DELETE /analyses/{id} (204)
